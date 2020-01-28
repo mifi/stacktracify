@@ -43,3 +43,4 @@ stacktracify --help
 ## See also
 
 - https://github.com/gabmontes/source-map-cli (only takes one line at a time)
+- https://github.com/janekp/mapstrace (not a CLI, not easy to use for any stack trace)
