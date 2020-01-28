@@ -1,0 +1,26 @@
+{
+  "name": "stacktracify",
+  "version": "1.0.0",
+  "description": "Make unreadable production stacktraces readable using source maps",
+  "main": "index.js",
+  "author": "Mikael Finstad <finstaden@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "stacktracify": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mifi/stacktracify.git"
+  },
+
+  "dependencies": {
+    "clipboardy": "^2.1.0",
+    "fs-extra": "^8.1.0",
+    "meow": "^6.0.0",
+    "source-map": "^0.7.3",
+    "stacktrace-parser": "^0.1.8"
+  },
+  "files": [
+    "index.js"
+  ]
+}
