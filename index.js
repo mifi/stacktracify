@@ -49,13 +49,21 @@ const { file } = cli.flags;
 
     if (header) console.log(header);
 
-    stack.forEach(({ lineNumber, column }) => {
-      const pos = smc.originalPositionFor({ line: lineNumber, column });
-      if (pos && pos.line != null) {
-        console.log(`    at ${pos.name || ''} (${pos.source}:${pos.line}:${pos.column})`);
+    stack.forEach(({ methodName, lineNumber, column }) => {
+      try {
+        if (lineNumber == null || lineNumber < 1) {
+          console.log(`    at ${methodName || ''}`);
+        } else {
+          const pos = smc.originalPositionFor({ line: lineNumber, column });
+          if (pos && pos.line != null) {
+            console.log(`    at ${pos.name || ''} (${pos.source}:${pos.line}:${pos.column})`);
+          }
+    
+          // console.log('src', smc.sourceContentFor(pos.source));
+        }
+      } catch (err) {
+        console.log(`    at FAILED_TO_PARSE_LINE`);
       }
-
-      // console.log('src', smc.sourceContentFor(pos.source));
     });
   } catch (err) {
     console.error(err);
