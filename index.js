@@ -8,25 +8,25 @@ const { SourceMapConsumer } = require('source-map');
 
 
 const cli = meow(`
-	Usage
-	  $ stacktracify <map-path>
+  Usage
+    $ stacktracify <map-path>
 
-	Options
+  Options
     --file, -f  (default is read from clipboard)
 
-	Examples
-	  $ stacktracify /path/to/js.map --file /path/to/my-stacktrace.txt
+  Examples
+    $ stacktracify /path/to/js.map --file /path/to/my-stacktrace.txt
 `, {
-	flags: {
-		file: {
-			type: 'string',
-			alias: 'f',
-		}
-	}
+  flags: {
+    file: {
+      type: 'string',
+      alias: 'f',
+    },
+  },
 });
 
 
-const file = cli.flags.file;
+const { file } = cli.flags;
 
 (async () => {
   try {
