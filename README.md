@@ -21,6 +21,16 @@ TypeError h is not a function. (In 'h()', 'h' is undefined)
 
 **stacktracify takes a source map and a stack trace from your clipboard (or from a file) and outputs a readable stacktrace with proper line numbers for each line**
 
+Example output:
+```
+TypeError h is not a function. (In 'h()', 'h' is undefined) 
+    at getAuthToken (logic/api.js:67:20)
+    at authRequest (logic/api.js:127:8)
+    at data (logic/SaveQueue.js:30:20)
+    at op (logic/SaveQueue.js:43:29)
+    at __callImmediates (node_modules/react-native/Libraries/BatchedBridge/MessageQueue.js:143:11)
+```
+
 ## Install
 
 ```
