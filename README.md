@@ -1,5 +1,21 @@
 # stacktracify
 
+**NOTICE:** This is a modified version of the excellent `stacktracify` CLI-tool, created by: [mifi/stacktracify](https://github.com/mifi/stacktracify)
+
+This modified version allows for passing in a path to a folder of source maps (which was previously limited to a single file). 
+
+In addition to this, support for the following parameters have also been added: 
+
+| Parameter name | Abbreviation | Description                                                                                               |
+|----------------|--------------|-----------------------------------------------------------------------------------------------------------|
+| `--legend`     | `-l`         | Prints a legend, indicating when unable to not find a source map, or resolve line from a found source map |
+| `--debug`      | `-d`         | Prints debug information, useful for determining lookup-logic for relative paths etc.                     |
+
+**WARNING:** This version has not been made available to be installed on [npm](https://www.npmjs.com/), and hence must be installed
+by cloning this repository, running `yarn install` and linking the index.js file as an executable script (or invoke directly)!
+
+## Original documentation
+
 Have you ever been faced with a stacktrace that looks like this?
 
 ```
