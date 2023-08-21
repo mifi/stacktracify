@@ -42,10 +42,22 @@ const { file } = cli.flags;
     } else {
       str = await clipboardy.read();
     }
-    const stack = stackTraceParser.parse(str);
-    if (stack.length === 0) throw new Error('No stack found');
 
-    const header = str.split('\n').find(line => line.trim().length > 0);
+    let [header, ...lines] = str.trim().split(/\r?\n/);
+
+    lines = lines.map((line) => {
+      // stacktrace-parser doesn't seem to support stacktrace lines like this:
+      // index-12345678.js:1:2 a
+      const match = line.match(/^(\s+)([^\s]+:\d+:\d+)\s+([^\s]+)$/);
+      if (match) {
+        return `${match[1]}at ${match[3]} (${match[2]})`;
+      }
+
+      return line;
+    })
+
+    const stack = stackTraceParser.parse(lines.join('\n'));
+    if (stack.length === 0) throw new Error('No stack found');
 
     if (header) console.log(header);
 
