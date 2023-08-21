@@ -64,11 +64,11 @@ const { file } = cli.flags;
     stack.forEach(({ methodName, lineNumber, column }) => {
       try {
         if (lineNumber == null || lineNumber < 1) {
-          console.log(`    at ${methodName || ''}`);
+          console.log(`    at ${methodName || '[unknown]'}`);
         } else {
           const pos = smc.originalPositionFor({ line: lineNumber, column });
           if (pos && pos.line != null) {
-            console.log(`    at ${pos.name || ''} (${pos.source}:${pos.line}:${pos.column})`);
+            console.log(`    at ${pos.name || '[unknown]'} (${pos.source}:${pos.line}:${pos.column})`);
           }
     
           // console.log('src', smc.sourceContentFor(pos.source));
