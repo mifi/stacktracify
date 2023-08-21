@@ -1,0 +1,16 @@
+TypeError (intermediate value).toUpperCase is not a function 
+    https://example.com/index-78c888c8.js:316:72088 Jbe</j<
+    https://example.com/index-78c888c8.js:38:24017 EO
+    https://example.com/index-78c888c8.js:9:6208 rr.useMemo
+    https://example.com/index-78c888c8.js:316:71881 Jbe<
+    https://example.com/index-78c888c8.js:38:19634 hw
+    https://example.com/index-78c888c8.js:40:3139 Xy
+    https://example.com/index-78c888c8.js:40:2351 RO
+    https://example.com/index-78c888c8.js:40:47377 QO
+    https://example.com/index-78c888c8.js:40:39789 ZO
+    https://example.com/index-78c888c8.js:40:39717 HR
+    https://example.com/index-78c888c8.js:40:39568 lm
+    https://example.com/index-78c888c8.js:40:35933 l2
+    https://example.com/index-78c888c8.js:40:34882 GO
+    https://example.com/index-78c888c8.js:25:1663 J
+    https://example.com/index-78c888c8.js:25:2047 ze
