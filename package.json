@@ -20,7 +20,7 @@
     "fs-extra": "^10.1.0",
     "meow": "^6.0.0",
     "source-map": "^0.7.3",
-    "stacktrace-parser": "^0.1.8"
+    "stacktrace-parser": "^0.1.10"
   },
   "files": [
     "index.js"
