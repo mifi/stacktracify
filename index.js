@@ -68,7 +68,7 @@ const { file } = cli.flags;
         } else {
           const pos = smc.originalPositionFor({ line: lineNumber, column });
           if (pos && pos.line != null) {
-            console.log(`    at ${pos.name || '[unknown]'} (${pos.source}:${pos.line}:${pos.column})`);
+            console.log(`    at ${pos.name || methodName || '[unknown]'} (${pos.source}:${pos.line}:${pos.column})`);
           }
     
           // console.log('src', smc.sourceContentFor(pos.source));
