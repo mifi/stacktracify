@@ -5,11 +5,9 @@
   "main": "index.js",
   "author": "Mikael Finstad <finstaden@gmail.com>",
   "license": "MIT",
-  "bin": {
-    "stacktracify": "index.js"
-  },
+  "bin": "index.js",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "test": "exit 0"
@@ -27,5 +25,6 @@
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "packageManager": "yarn@4.17.0"
 }
