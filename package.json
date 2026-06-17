@@ -1,6 +1,6 @@
 {
   "name": "stacktracify",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Make unreadable production stacktraces readable using source maps",
   "main": "index.js",
   "author": "Mikael Finstad <finstaden@gmail.com>",
