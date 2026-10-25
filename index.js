@@ -32,8 +32,6 @@ const { file } = cli.flags;
 const mapPath = cli.input[0];
 if (!mapPath) cli.showHelp();
 const mapContent = JSON.parse(await readFile(mapPath, 'utf8'));
-// WTF? promise?
-const smc = await new SourceMapConsumer(mapContent);
 
 let str;
 if (file !== undefined) {
@@ -60,19 +58,22 @@ if (stack.length === 0) throw new Error('No stack found');
 
 if (header) console.log(header);
 
-stack.forEach(({ methodName, lineNumber, column }) => {
-  try {
-    if (lineNumber == null || lineNumber < 1) {
-      console.log(`    at ${methodName || '[unknown]'}`);
-    } else {
+await SourceMapConsumer.with(mapContent, null, (smc) => {
+  stack.forEach(({ file: frameFile, methodName, lineNumber, column }) => {
+    try {
+      if (lineNumber == null || lineNumber < 1) {
+        console.log(`    at ${methodName || '[unknown]'}`);
+        return;
+      }
       const pos = smc.originalPositionFor({ line: lineNumber, column });
       if (pos && pos.line != null) {
         console.log(`    at ${pos.name || methodName || '[unknown]'} (${pos.source}:${pos.line}:${pos.column})`);
+      } else {
+        // no mapping found, print the original position instead of dropping the line
+        console.log(`    at ${methodName || '[unknown]'} (${frameFile?.trim()}:${lineNumber}:${column})`);
       }
-
-      // console.log('src', smc.sourceContentFor(pos.source));
+    } catch (err) {
+      console.log(`    at FAILED_TO_PARSE_LINE`);
     }
-  } catch (err) {
-    console.log(`    at FAILED_TO_PARSE_LINE`);
-  }
+  });
 });
